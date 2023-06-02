@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.HomeFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:text="@string/top_headlines_news"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_headlines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:visibility="gone"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_headlines_news" />
+
+            <LinearLayout
+                android:id="@+id/loading_headlines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:visibility="visible">
+
+                <com.elyeproj.loaderviewlibrary.LoaderImageView
+                    android:layout_width="300dp"
+                    android:layout_height="270dp"
+                    android:layout_margin="8dp" />
+
+                <com.elyeproj.loaderviewlibrary.LoaderImageView
+                    android:layout_width="300dp"
+                    android:layout_height="270dp"
+                    android:layout_margin="8dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:text="@string/all_news"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:visibility="gone"
+                tools:listitem="@layout/item_news" />
+
+            <LinearLayout
+                android:id="@+id/loading_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <include layout="@layout/item_news_loading" />
+
+                <include layout="@layout/item_news_loading" />
+
+                <include layout="@layout/item_news_loading" />
+
+                <include layout="@layout/item_news_loading" />
+
+                <include layout="@layout/item_news_loading" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
