@@ -39,6 +39,11 @@ class HomeFragment : Fragment() {
         generateNewsView(viewModel)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
     private fun generateHeadlinesView(viewModel: MainViewModel) {
         val headlinesAdapter = HeadlinesAdapter()
         viewModel.getHeadlineNews().observe(viewLifecycleOwner) { result ->
@@ -120,11 +125,5 @@ class HomeFragment : Fragment() {
                 binding?.rvNews?.visibility = View.VISIBLE
             }
         }
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 }
